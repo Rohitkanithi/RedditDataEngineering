@@ -12,6 +12,7 @@ apache-airflow-providers-fab==1.5.3
 apache-airflow-providers-ftp==3.12.0
 apache-airflow-providers-http==5.0.0
 apache-airflow-providers-imap==3.8.0
+apache-airflow-providers-openlineage>=1.8.0
 apache-airflow-providers-smtp==1.9.0
 apache-airflow-providers-sqlite==4.0.0
 apispec==6.8.1
@@ -28,6 +29,7 @@ click==8.1.8
 clickclick==20.10.2
 colorama==0.4.6
 colorlog==6.9.0
+configparser==7.1.0
 ConfigUpdater==3.2
 connexion==2.14.2
 cron-descriptor==1.4.5
@@ -79,7 +81,7 @@ mdurl==0.1.2
 methodtools==0.4.7
 more-itertools==10.6.0
 multidict==6.1.0
-numpy==2.2.3
+numpy==2.0.2
 opentelemetry-api==1.30.0
 opentelemetry-exporter-otlp==1.30.0
 opentelemetry-exporter-otlp-proto-common==1.30.0
