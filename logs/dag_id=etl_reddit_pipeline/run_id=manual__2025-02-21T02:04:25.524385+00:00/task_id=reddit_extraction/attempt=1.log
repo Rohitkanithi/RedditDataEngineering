@@ -1,0 +1,101 @@
+[2025-02-21T02:04:26.681+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-21T02:04:26.689+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_reddit_pipeline.reddit_extraction manual__2025-02-21T02:04:25.524385+00:00 [queued]>
+[2025-02-21T02:04:26.694+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_reddit_pipeline.reddit_extraction manual__2025-02-21T02:04:25.524385+00:00 [queued]>
+[2025-02-21T02:04:26.694+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-02-21T02:04:26.699+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): reddit_extraction> on 2025-02-21 02:04:25.524385+00:00
+[2025-02-21T02:04:26.701+0000] {standard_task_runner.py:72} INFO - Started process 59 to run task
+[2025-02-21T02:04:26.703+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'etl_reddit_pipeline', 'reddit_extraction', 'manual__2025-02-21T02:04:25.524385+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/reddit_dag.py', '--cfg-path', '/tmp/tmp7m7yr1hj']
+[2025-02-21T02:04:26.704+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask reddit_extraction
+[2025-02-21T02:04:26.727+0000] {task_command.py:467} INFO - Running <TaskInstance: etl_reddit_pipeline.reddit_extraction manual__2025-02-21T02:04:25.524385+00:00 [running]> on host 70c3229eb0f4
+[2025-02-21T02:04:26.768+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Rohit Kanithi' AIRFLOW_CTX_DAG_ID='etl_reddit_pipeline' AIRFLOW_CTX_TASK_ID='reddit_extraction' AIRFLOW_CTX_EXECUTION_DATE='2025-02-21T02:04:25.524385+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-21T02:04:25.524385+00:00'
+[2025-02-21T02:04:26.768+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-02-21T02:04:26.878+0000] {logging_mixin.py:190} INFO - Connected to reddit..!
+[2025-02-21T02:04:27.856+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/opt/airflow/pipelines/reddit_pipeline.py", line 12, in reddit_pipeline
+    load_data_to_csv(post_df, OUTPUT_PATH)
+  File "/opt/airflow/etls/reddit_etl.py", line 39, in load_data_to_csv
+    data.to_csv(path, index=False)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+IsADirectoryError: [Errno 21] Is a directory: '/opt/airflow/data/output'
+[2025-02-21T02:04:27.863+0000] {taskinstance.py:1226} INFO - Marking task as FAILED. dag_id=etl_reddit_pipeline, task_id=reddit_extraction, run_id=manual__2025-02-21T02:04:25.524385+00:00, execution_date=20250221T020425, start_date=20250221T020426, end_date=20250221T020427
+[2025-02-21T02:04:27.886+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-02-21T02:04:27.887+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 2 for task reddit_extraction ([Errno 21] Is a directory: '/opt/airflow/data/output'; 59)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/opt/airflow/pipelines/reddit_pipeline.py", line 12, in reddit_pipeline
+    load_data_to_csv(post_df, OUTPUT_PATH)
+  File "/opt/airflow/etls/reddit_etl.py", line 39, in load_data_to_csv
+    data.to_csv(path, index=False)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+IsADirectoryError: [Errno 21] Is a directory: '/opt/airflow/data/output'
+[2025-02-21T02:04:27.904+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-02-21T02:04:27.918+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-21T02:04:27.928+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
