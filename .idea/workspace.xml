@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14add686-7864-4391-9791-b72373b681cf" name="Changes" comment="Cleaned and Transformed RedditData">
-      <change afterPath="$PROJECT_DIR$/etls/aws_etl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipelines/aws_s3_pipeline.py" afterDir="false" />
+    <list default="true" id="14add686-7864-4391-9791-b72373b681cf" name="Changes" comment="Resolved issues for AWS Glue for data processing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.conf" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dags/reddit_dag.py" beforeDir="false" afterPath="$PROJECT_DIR$/dags/reddit_dag.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/reddit_20250221.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/output/reddit_20250221.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/dag_id=etl_reddit_pipeline/run_id=scheduled__2025-02-20T00:00:00+00:00/task_id=reddit_extraction/attempt=1.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/dag_id=etl_reddit_pipeline/run_id=scheduled__2025-02-20T00:00:00+00:00/task_id=reddit_extraction/attempt=1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etls/aws_etl.py" beforeDir="false" afterPath="$PROJECT_DIR$/etls/aws_etl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etls/reddit_etl.py" beforeDir="false" afterPath="$PROJECT_DIR$/etls/reddit_etl.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/dag_processor_manager/dag_processor_manager.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/dag_processor_manager/dag_processor_manager.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/scheduler/2025-02-21/reddit_dag.py.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/scheduler/2025-02-21/reddit_dag.py.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/scheduler/latest" beforeDir="false" afterPath="$PROJECT_DIR$/logs/scheduler/latest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipelines/aws_s3_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipelines/aws_s3_pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipelines/reddit_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipelines/reddit_pipeline.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,12 +123,30 @@
       <option name="project" value="LOCAL" />
       <updated>1740114028964</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Configured AWS for Airflow S3 integration">
+      <option name="closed" value="true" />
+      <created>1740164478656</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1740164478656</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Resolved issues for AWS Glue for data processing">
+      <option name="closed" value="true" />
+      <created>1740174475411</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1740174475411</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Configured initial airflow setup with docker, PostgreSQL and Redis" />
     <MESSAGE value="Cleaned and Transformed RedditData" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned and Transformed RedditData" />
+    <MESSAGE value="Configured AWS for Airflow S3 integration" />
+    <MESSAGE value="Resolved issues for AWS Glue for data processing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Resolved issues for AWS Glue for data processing" />
   </component>
 </project>
